@@ -1,0 +1,176 @@
+columns:
+  - groups:
+    - name: Programming Languages
+      skills:
+        - name: Javascirpt
+          level: 9
+        - name: TypeScript
+          level: 8
+        - name: Golang
+          level: 8
+        - name: C
+          level: 7
+        - name: C++
+          level: 6
+        - name: C#
+          level: 6
+        - name: HTML5
+          level: 10
+        - name: CSS3
+          level: 10
+    - name: DevOps
+      skills:
+        - name: GitLab CI
+          level: 10
+        - name: Azure Pipelines
+          level: 7
+        - name: Keptn
+          level: 8
+    - name: Cloud Hosting
+      skills:
+        - name: GCP
+          level: 8
+        - name: Microsoft Azure
+          level: 7
+        - name: Hetzner
+          level: 5
+        - name: Linode
+          level: 5
+    - name: Containerization
+      skills:
+        - name: Docker
+          level: 9
+        - name: Kubernetes
+          level: 8
+        - name: k3s
+          level: 6
+        - name: buildah
+          level: 5
+        - name: podman
+          level: 5
+    - name: Performance testing
+      skills:
+        - name: NeoLoad
+          level: 10
+        - name: k6
+          level: 7
+        - name: Apache JMeter
+          level: 6
+  - groups:
+    - name: Monitoring Systems - APM
+      skills:
+        - name: Dynatrace
+          level: 9
+        - name: OpenTelemetry
+          level: 8
+        - name: Jaeger
+          level: 7
+        - name: Zipkin
+          level: 7
+        - name: Sentry
+          level: 7
+        - name: Prometheus
+          level: 5
+        - name: Elastic APM
+          level: 5
+        - name: Grafana
+          level: 5
+    - name: Test Automation & Frameworks
+      skills:
+        - name: Selenium Grid
+          level: 8
+        - name: Selenium Webdriver
+          level: 8
+        - name: Jest
+          level: 6
+    - name: Software Frameworks & Libraries
+      skills:
+        - name: Angular
+          level: 9
+        - name: RxJS
+          level: 9
+        - name: Electron
+          level: 8
+        - name: Sass
+          level: 9
+        - name: .NET Core
+          level: 5
+        - name: Entity Framework
+          level: 6
+    - name: Version Control
+      skills:
+        - name: Git
+          level: 8
+        - name: GitHub
+          level: 7
+        - name: GitLab
+          level: 10
+        - name: Azure DevOps
+          level: 8
+    - name: Issue Tracking
+      skills:
+        - name: Atlassian Jira
+          level: 10
+        - name: GitLab Issues
+          level: 7
+        - name: GitHub Issues
+          level: 7
+  - groups:
+    - name: Databases
+      skills:
+        - name: PostgreSQL
+          level: 7
+        - name: MySQL
+          level: 5
+        - name: Oracle
+          level: 5
+    - name: Web Server
+      skills:
+        - name: CADDY
+          level: 8
+        - name: NGINX
+          level: 7
+    - name: Operating Systems
+      skills:
+        - name: Arch Linux
+          level: 8
+        - name: macOS
+          level: 9
+        - name: Windows 10
+          level: 9
+        - name: Ubuntu
+          level: 8
+        - name: RHEL
+          level: 5
+    - name: Other tools
+      skills:
+        - name: Vim/Neovim
+          level: 7
+        - name: Visual Studio Code
+          level: 9
+        - name: Beyond Compare
+          level: 10
+        - name: Affinity Designer
+          level: 10
+        - name: Affinity Photo
+          level: 8
+    - name: Languages
+      skills:
+        - name: German (native)
+          level: 10
+        - name: English
+          level: 9
+    - name: Daily Usage
+      skills:
+        - name: Microsoft Outlook
+          level: -1
+        - name: Microsoft Teams
+          level: -1
+        - name: Zoom
+          level: -1
+        - name: Skype
+          level: -1
+        - name: Slack
+          level: -1
+        - name: ZSH ; )
+          level: -1

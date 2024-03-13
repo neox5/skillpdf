@@ -1,0 +1,32 @@
+columns:
+  - groups:
+    - name: Other tools
+      skills:
+        - name: Visual Studio Code
+          level: 9
+        - name: Beyond Compare
+          level: 10
+        - name: Affinity Designer
+          level: 10
+        - name: Affinity Photo
+          level: 8
+    - name: Languages
+      skills:
+        - name: German (native)
+          level: 10
+        - name: English
+          level: 9
+    - name: Daily Usage
+      skills:
+        - name: Microsoft Outlook
+          level: -1
+        - name: Microsoft Teams
+          level: -1
+        - name: Zoom
+          level: -1
+        - name: Skype
+          level: -1
+        - name: Slack
+          level: -1
+        - name: ZSH ; )
+          level: -1
