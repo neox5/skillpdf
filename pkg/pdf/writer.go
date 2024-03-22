@@ -4,6 +4,7 @@ import (
 	"strings"
 
 	"github.com/jung-kurt/gofpdf"
+	"github.com/neox5/skillpdf/internal/config"
 )
 
 const (
@@ -23,7 +24,7 @@ const (
 )
 
 // WriteSkillGroup writes a complete SkillGroup to a pdf page
-func WriteSkillGroup(p *gofpdf.Fpdf, g SkillGroup) {
+func WriteSkillGroup(p *gofpdf.Fpdf, g config.SkillGroup) {
 	writeGroupHeader(p, g)
 	p.Ln(1.5)
 	for _, s := range g.Skills {
@@ -32,7 +33,7 @@ func WriteSkillGroup(p *gofpdf.Fpdf, g SkillGroup) {
 	}
 }
 
-func writeGroupHeader(p *gofpdf.Fpdf, g SkillGroup) {
+func writeGroupHeader(p *gofpdf.Fpdf, g config.SkillGroup) {
 	p.SetFont(fontHeader, "", HeaderFontSize)
 	p.SetCellMargin(0)
 	p.CellFormat(ColumnWidth, lineHeight, strings.ToUpper(g.Name), "", 2, "", false, 0, "")
@@ -41,7 +42,7 @@ func writeGroupHeader(p *gofpdf.Fpdf, g SkillGroup) {
 	p.Line(x, y, x+ColumnWidth, y)
 }
 
-func writeSkill(p *gofpdf.Fpdf, s Skill) {
+func writeSkill(p *gofpdf.Fpdf, s config.Skill) {
 	p.SetFont(fontSkill, "", SkillFontSize)
 	p.SetCellMargin(3)
 	p.CellFormat(nameWidth, lineHeight, s.Name, "", 0, "", false, 0, "")

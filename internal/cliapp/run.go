@@ -5,6 +5,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/neox5/skillpdf/internal/config"
+	"github.com/neox5/skillpdf/pkg/pdf"
 	"github.com/urfave/cli/v2"
 )
 
@@ -20,6 +22,7 @@ func Run() {
 		Commands: []*cli.Command{
 			exampleCmd,
 		},
+		Action: generatePdfFunc,
 	}
 
 	if err := app.Run(os.Args); err != nil {
@@ -48,3 +51,33 @@ var configFlag = &cli.StringFlag{
 }
 
 var outputFlag = &cli.StringFlag{Name: "output", Value: "skills.pdf", Aliases: []string{"o"}, Usage: "Output `FILE`"}
+
+var generatePdfFunc = func(cCtx *cli.Context) error {
+	configPath := cCtx.String("config")
+	outputPath := cCtx.String("output")
+
+	cfg := config.Load(configPath)
+
+	p := pdf.New(true)
+	p.AddPage()
+
+	originY := p.GetY()
+
+	p.SetLeftMargin(pdf.LeftMargin)
+	for i, c := range cfg.Columns {
+		p.SetY(originY)
+		p.SetLeftMargin(pdf.LeftMargin + float64(i)*(pdf.ColumnWidth+pdf.ColumnGap))
+		for _, g := range c.Groups {
+			pdf.WriteSkillGroup(p, g)
+		}
+	}
+
+	err := p.OutputFileAndClose(outputPath)
+	if err != nil {
+		log.Fatalf("PDF generation error: %v", err)
+	}
+
+	fmt.Printf("PDF successfully generated: %v\n", outputPath)
+
+	return nil
+}

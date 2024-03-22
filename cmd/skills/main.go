@@ -1,13 +1,7 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"os"
-
 	"github.com/neox5/skillpdf/internal/cliapp"
-	"github.com/neox5/skillpdf/pkg/pdf"
-	"github.com/spf13/viper"
 )
 
 func main() {
@@ -43,34 +37,4 @@ func main() {
 	// }
 
 	// fmt.Println("PDF successfully generated")
-}
-
-func loadConfig(configPath string) *pdf.Config {
-	if configPath != "" {
-		fmt.Println(configPath)
-		if _, err := os.Stat(configPath); os.IsNotExist(err) {
-			fmt.Printf("Warning: Config file %s does not exist. Using default configuration.\n", configPath)
-			viper.SetConfigName("config")
-			viper.AddConfigPath(".")
-		} else {
-			viper.SetConfigFile(configPath)
-		}
-	} else {
-		fmt.Println("Warning: No config file specified. Using default configuration.")
-		viper.SetConfigName("config")
-		viper.AddConfigPath(".")
-	}
-
-	err := viper.ReadInConfig()
-	if err != nil {
-		log.Fatalf("Read config file error: %s", err)
-	}
-
-	config := &pdf.Config{}
-	err = viper.Unmarshal(config)
-	if err != nil {
-		log.Fatalf("Unmarshal config error: %s", err)
-	}
-
-	return config
 }
