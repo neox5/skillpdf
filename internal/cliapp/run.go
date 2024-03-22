@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/neox5/skillpdf/internal/config"
-	"github.com/neox5/skillpdf/pkg/pdf"
+	"github.com/neox5/skillpdf/internal/pdf"
 	"github.com/urfave/cli/v2"
 )
 
@@ -58,19 +58,7 @@ var generatePdfFunc = func(cCtx *cli.Context) error {
 
 	cfg := config.Load(configPath)
 
-	p := pdf.New(true)
-	p.AddPage()
-
-	originY := p.GetY()
-
-	p.SetLeftMargin(pdf.LeftMargin)
-	for i, c := range cfg.Columns {
-		p.SetY(originY)
-		p.SetLeftMargin(pdf.LeftMargin + float64(i)*(pdf.ColumnWidth+pdf.ColumnGap))
-		for _, g := range c.Groups {
-			pdf.WriteSkillGroup(p, g)
-		}
-	}
+	p := pdf.GenerateSkillsPdf(cfg)
 
 	err := p.OutputFileAndClose(outputPath)
 	if err != nil {

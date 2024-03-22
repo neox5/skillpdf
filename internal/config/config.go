@@ -10,7 +10,13 @@ import (
 
 // Config defines the config structure
 type Config struct {
-	Columns []SkillColumn `yaml:"columns"`
+	Settings PdfSettings   `yaml:"settings"`
+	Columns  []SkillColumn `yaml:"columns"`
+}
+
+type PdfSettings struct {
+	// IsLandscape sets the orientation from portrait (default) to landscape
+	IsLandScape bool `yaml:"isLandscape"`
 }
 
 type SkillColumn struct {
@@ -28,6 +34,53 @@ type Skill struct {
 	Name string `yaml:"name"`
 	// Level from 0 to 10 or -1 to remove the graphical representation
 	Level int `yaml:"level"`
+}
+
+func CreateDefaultConfig() *Config {
+	return &Config{
+		Settings: PdfSettings{
+			IsLandScape: false,
+		},
+		Columns: []SkillColumn{
+			{
+				Groups: []SkillGroup{
+					{
+						Name: "Programming Languages",
+						Skills: []Skill{
+							{Name: "Javascirpt", Level: 9},
+							{Name: "TypeScript", Level: 8},
+							{Name: "Golang", Level: 8},
+							{Name: "C", Level: 7},
+							{Name: "C++", Level: 6},
+							{Name: "C#", Level: 6},
+							{Name: "HTML5", Level: 10},
+							{Name: "CSS3", Level: 10},
+						},
+					},
+					{
+						Name: "DevOps",
+						Skills: []Skill{
+							{Name: "GitLab CI", Level: 10},
+							{Name: "Azure Pipelines", Level: 7},
+							{Name: "Keptn", Level: 8},
+						},
+					},
+				},
+			},
+			{
+				Groups: []SkillGroup{
+					{
+						Name: "Issue Tracking",
+						Skills: []Skill{
+							{Name: "Atlassian Jira", Level: 10},
+							{Name: "GitLab Issues", Level: 7},
+							{Name: "GitHub Issues", Level: 7},
+						},
+					},
+				},
+			},
+		},
+	}
 }
 
 func Load(configPath string) *Config {
