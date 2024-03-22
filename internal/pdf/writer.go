@@ -19,9 +19,15 @@ const (
 	r              = 0.8 // radius
 	levelDistance  = 2.3
 
-	fontHeader = "Montserrat"
-	fontSkill  = "Montserrat"
+	fontHeader = "Arial"
+	fontSkill  = "Arial"
 )
+
+func WriteSectionHeader(p *gofpdf.Fpdf, headerName string) {
+	p.SetFont(fontHeader, "", 12)
+	p.SetCellMargin(0)
+	p.CellFormat(ColumnWidth, 16, headerName, "", 2, "", false, 0, "")
+}
 
 // WriteSkillGroup writes a complete SkillGroup to a pdf page
 func WriteSkillGroup(p *gofpdf.Fpdf, g config.SkillGroup) {

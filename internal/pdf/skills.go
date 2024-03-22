@@ -9,6 +9,8 @@ func GenerateSkillsPdf(cfg *config.Config) *gofpdf.Fpdf {
 	p := New(cfg.Settings.IsLandScape)
 	p.AddPage()
 
+	WriteSectionHeader(p, "Skills")
+
 	originY := p.GetY()
 
 	p.SetLeftMargin(LeftMargin)
