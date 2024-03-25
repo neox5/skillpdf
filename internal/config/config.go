@@ -16,7 +16,8 @@ type Config struct {
 
 type PdfSettings struct {
 	// IsLandscape sets the orientation from portrait (default) to landscape
-	IsLandScape bool `yaml:"isLandscape"`
+	IsLandScape bool    `yaml:"isLandscape"`
+	LeftMargin  float64 `yaml:"leftMargin"`
 }
 
 type SkillColumn struct {
@@ -40,6 +41,7 @@ func CreateDefaultConfig() *Config {
 	return &Config{
 		Settings: PdfSettings{
 			IsLandScape: false,
+			LeftMargin:  10,
 		},
 		Columns: []SkillColumn{
 			{
