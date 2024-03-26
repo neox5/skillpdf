@@ -16,8 +16,19 @@ type Config struct {
 
 type PdfSettings struct {
 	// IsLandscape sets the orientation from portrait (default) to landscape
-	IsLandScape bool    `yaml:"isLandscape"`
-	LeftMargin  float64 `yaml:"leftMargin"`
+	IsLandScape    bool    `yaml:"isLandscape"`
+	LeftMargin     float64 `yaml:"leftMargin"`
+	ColumnWidth    float64 `yaml:"columnWidth"`
+	ColumnGap      float64 `yaml:"columnGap"`
+	HeaderFontSize float64 `yaml:"headerFontSize"`
+	SkillFontSize  float64 `yaml:"skillFontSize"`
+	LineHeight     float64 `yaml:"lineHeight"`
+	NameWidth      float64 `yaml:"nameWidth"`
+	LevelWidth     float64 `yaml:"levelWidth"`
+	Radius         float64 `yaml:"radius"`
+	LevelDistance  float64 `yaml:"levelDistance"`
+	FontHeader     string  `yaml:"fontHeader"`
+	FontSkill      string  `yaml:"fontSkill"`
 }
 
 type SkillColumn struct {
@@ -40,8 +51,19 @@ type Skill struct {
 func CreateDefaultConfig() *Config {
 	return &Config{
 		Settings: PdfSettings{
-			IsLandScape: false,
-			LeftMargin:  10,
+			IsLandScape:    false,
+			LeftMargin:     10,
+			ColumnWidth:    56.5,
+			ColumnGap:      10,
+			HeaderFontSize: 7,
+			SkillFontSize:  8,
+			LineHeight:     3.5,
+			NameWidth:      34.5,
+			LevelWidth:     22,
+			Radius:         0.8,
+			LevelDistance:  2.3,
+			FontHeader:     "Arial",
+			FontSkill:      "Arial",
 		},
 		Columns: []SkillColumn{
 			{
